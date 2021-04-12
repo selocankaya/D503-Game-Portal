@@ -98,8 +98,8 @@
     <!-- Main Slide -->
     <div class="main-slider owl-carousel owl-theme">
       <!-- Single Slide -->
-      <div class="single-slide">
-        <img src="./img/slide_1.jpg">
+      <div class="single-slide" data-dot="<span>01.</span>">
+        <img src="./img/slide_3.jpg">
         <div class="slide-overlay">
           <div class="container">
             <div class="slide-content">
@@ -110,7 +110,8 @@
           </div>
         </div>
       </div>
-      <div class="single-slide">
+      <!-- Single Slide -->
+      <div class="single-slide" data-dot="<span>02.</span>">
         <img src="./img/slide_2.jpg">
         <div class="slide-overlay">
           <div class="container">
@@ -122,8 +123,9 @@
           </div>
         </div>
       </div>
-      <div class="single-slide">
-        <img src="./img/slide_3.jpg">
+      <!-- Single Slide -->
+      <div class="single-slide" data-dot="<span>03.</span>">
+        <img src="./img/slide_1.jpg">
         <div class="slide-overlay">
           <div class="container">
             <div class="slide-content">
@@ -144,15 +146,8 @@
 
   <!-- OWL CAROUSEL-->
   <script src="./js/owl.carousel.js"></script>
-  <script>
-    $(document).ready(function () {
-      let owl = $(".owl-carousel").owlCarousel({
-        autoplay: false,
-        dots: false,
-        items: 1
-      });
-    });
-  </script>
+  <!-- CUSTOM JS-->
+  <script src="./js/main.js"></script>
 </body>
 
 </html>
