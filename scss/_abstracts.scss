@@ -1,23 +1,19 @@
-/** FONTS **/
+/*FONTS*/
 
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@500&family=Open+Sans:wght@300&display=swap');
 
-/** VARIABLES **/
+/*VARIABLES*/
 
 $primary-font: 'Changa', sans-serif;
 $secondary-font: 'Open Sans', sans-serif;
 $primary-color: #e51515;
 $secondary-color: #14151a;
 $date-color: #ffb320;
-$comment-color: #08abbb;
+$comment-color: #08abbd;
 $gray-color: #9f9f9f;
 $light-color: #fefefe;
 
-/** UTILITIES **/
-
-.bg-dark {
-  background-color: $secondary-color;
-}
+/*UTILITIES*/
 
 .bg {
   &-dark {
@@ -34,9 +30,9 @@ $light-color: #fefefe;
   }
 }
 
-/** MIXINS **/
-@mixin flex-display($display, $align-items, $justify-content) {
+/*MIXINS*/
+@mixin flex-display($display, $justify-content, $align-items) {
   display: $display;
-  align-items: $align-items;
   justify-content: $justify-content;
+  align-items: $align-items;
 }

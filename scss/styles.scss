@@ -1,37 +1,53 @@
 @import 'abstracts';
 @import 'components';
+@import 'animations';
 
-/** GENERAL SETTINGS **/
+/*GENERAL SETTINGS*/
+
 *,
 *::after,
 *::before {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
-
 html {
   font-size: 10px;
 }
-
 body {
   font-family: $secondary-font;
   color: $gray-color;
-  background-color: $light-color;
 }
-
 .container {
   max-width: 114rem;
-  margin: 0 auto;
   width: 100%;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $primary-font;
+  color: $primary-color;
+  font-weight: 300;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 7rem;
 }
 
 h2 {
-  font-family: $primary-font;
   font-size: 5rem;
   color: $light-color;
-  letter-spacing: 0.5rem;
-  font-weight: 300;
+}
+
+h4 {
+  font-size: 2rem;
+  color: $light-color;
 }
 
 a {
@@ -40,42 +56,39 @@ a {
   font-family: $primary-font;
   color: $light-color;
 }
-
 ul {
   list-style: none;
 }
-
 img {
   width: 100%;
 }
 
-/* TOP HEADER  */
+/*TOP HEADER*/
 
 .top-header {
   border-bottom: 1px solid $primary-color;
+
   .container {
-    @include flex-display(flex, center, space-between);
-    .logo {
-      h1 {
-        font-size: 5rem;
-        font-family: $primary-font;
-        color: $primary-color;
-      }
-    }
+    @include flex-display(flex, space-between, center);
+
     .top-social-menu {
       display: flex;
+
       li {
-        margin: 0 1rem;
         padding: 1rem;
+        margin: 0 1rem;
+
         a {
           font-size: 2rem;
           transition: all 0.5s;
         }
+
         &:hover a {
           color: $primary-color;
         }
       }
     }
+
     .login-area {
       span {
         display: none;
@@ -84,73 +97,81 @@ img {
   }
 }
 
-// NAV HEADER
+/*NAV HEADER*/
 
 .nav-header {
   .navbar {
-    @include flex-display(flex, center, space-between);
-  }
-  .navbar-list {
-    display: flex;
-    li {
-      line-height: 8rem;
-      position: relative;
-      transition: all 0.5s;
+    @include flex-display(flex, space-between, center);
 
-      .dropdown {
-        position: absolute;
-        background-color: lighten($secondary-color, 10%);
-        width: 150%;
-        left: 50%;
-        z-index: 10;
-        top: 12rem;
+    .navbar-list {
+      display: flex;
+
+      li {
+        line-height: 8rem;
+        position: relative;
         transition: all 0.5s;
-        opacity: 0;
-        visibility: hidden;
-        li {
-          line-height: 4rem;
+
+        .dropdown {
+          position: absolute;
+          background-color: lighten($secondary-color, 10%);
+          width: 150%;
+          left: 50%;
+          z-index: 10;
+          top: 12rem;
+          transition: all 0.5s;
+          opacity: 0;
+          visibility: hidden;
+
+          li {
+            line-height: 4rem;
+          }
+        }
+
+        &:hover {
+          background-color: $primary-color;
+
+          & .dropdown {
+            opacity: 1;
+            top: 8rem;
+            visibility: visible;
+          }
         }
       }
-      &:hover {
-        background-color: $primary-color;
-        & .dropdown {
-          opacity: 1;
-          visibility: visible;
-          top: 8rem;
-        }
+
+      a {
+        padding: 0 2rem;
+        font-size: 1.6rem;
+        letter-spacing: 2px;
       }
-    }
-    a {
-      padding: 0 2rem;
-      font-size: 1.6rem;
-      letter-spacing: 2px;
+
+      i {
+        color: $light-color;
+        font-size: 1.6rem;
+        margin-right: 2rem;
+      }
     }
 
-    i {
-      color: $light-color;
-      font-size: 1.6rem;
-      margin-right: 1rem;
-    }
-  }
-  .search-area {
-    input[type='search'],
-    button[type='submit'] {
-      border: none;
-      background-color: transparent;
-      color: $light-color;
-    }
-    input[type='search'] {
-      border-bottom: 5px solid $primary-color;
-      padding: 0.5rem;
-    }
-    button[type='submit'] {
-      margin-left: -5rem;
+    .search-area {
+      input[type='search'],
+      button[type='submit'] {
+        border: none;
+        background-color: transparent;
+        color: $light-color;
+      }
+
+      input[type='search'] {
+        border-bottom: 1px solid $primary-color;
+        padding: 0.5rem;
+      }
+
+      button[type='submit'] {
+        margin-left: -5rem;
+      }
     }
   }
 }
 
-/* MAIN SLIDER */
-
+/*MAIN SLIDER*/
 .main-slider {
   .single-slide {
     position: relative;
@@ -163,10 +184,9 @@ img {
       height: 100%;
       background: radial-gradient(
         ellipse at center,
-        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5) 0%,
         rgba(0, 0, 0, 0.9) 100%
       );
-
       .slide-content {
         position: absolute;
         top: 25%;
@@ -179,7 +199,7 @@ img {
           rgba(0, 0, 0, 0.6),
           rgba(0, 0, 0, 1)
         );
-
+        animation: mainAni 3s ease-out;
         p {
           font-size: 1.4rem;
         }
@@ -187,9 +207,7 @@ img {
     }
   }
 }
-
-/* CUSTOM OWL CAROUSEL */
-
+/** CUSTOM  OWL CAROUSEL **/
 .owl-theme {
   position: relative;
 
@@ -208,7 +226,6 @@ img {
       text-align: center;
       border-radius: 4rem;
       background-color: transparent;
-      transition: all 0.5s;
 
       &.active,
       &:hover {
@@ -223,6 +240,33 @@ img {
         font-size: 2.5rem;
         font-family: $primary-font;
         background: transparent;
+      }
+    }
+  }
+}
+
+/** LATEST NEWS **/
+
+.latest-news {
+  display: flex;
+  background-color: $primary-color;
+  height: 8rem;
+  align-items: center;
+  &-title {
+    flex-basis: 25%;
+    text-align: right;
+    padding-right: 2rem;
+  }
+  &-content {
+    flex-basis: 75%;
+    background-color: $secondary-color;
+    height: 100%;
+    .news-ticker {
+      @include flex-display(flex, center, space-between);
+      line-height: 8rem;
+      p {
+        color: $light-color;
+        font-size: 1.4rem;
       }
     }
   }
